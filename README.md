@@ -1,5 +1,6 @@
 # epet_app
-
+模拟e宠商城
+模拟e宠商城
 > A Vue.js project
 
 ## Build Setup
