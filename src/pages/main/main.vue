@@ -3,20 +3,35 @@
       <epet-header></epet-header>
       <div class="allmodul"  ref="module">
         <div class="modules">
+          <!--轮播-->
           <epet-banner :imgList="imgList" :file="file"></epet-banner>
           <split></split>
+          <!--小分类-->
           <div class="columnnavdiv">
             <epet-column></epet-column>
           </div>
           <split></split>
+          <!--每日疯抢-->
           <div class="surprise_day">
             <surprise></surprise>
           </div>
+          <!--热门栏目-->
+          <hotColumn></hotColumn>
+          <!--热视频-->
+          <hotVideo></hotVideo>
+          <split></split>
+          <!--体验馆-->
+          <experience></experience>
+          <!--品牌特卖-->
+          <brandSale></brandSale>
+          <!--口碑评价-->
+          <ratings></ratings>
+          <split></split>
+          <mainfooter></mainfooter>
         </div>
       </div>
     </div>
 </template>
-
 <script>
   import BScroll from 'better-scroll'
   //  引入组件
@@ -25,6 +40,12 @@
   import banner from '../../components/banner/banner.vue'
   import column from '../../components/column/column.vue'
   import surprise from '../../components/surprise/surprise.vue'
+  import hotColumn from '../../components/hotColumn/hotColumn.vue'
+  import hotVideo from '../../components/hotVideo/hotVideo.vue'
+  import experience from '../../components/experience/experience.vue'
+  import brandSale from '../../components/brandSale/brandSale.vue'
+  import ratings from '../../components/ratings/ratings.vue'
+  import mainfooter from '../../components/mainfooter/mainfooter.vue'
   export default {
     data(){
       return {
@@ -53,20 +74,23 @@
         'epet-header': header,
         'epet-banner': banner,
         'epet-column': column,
+        split,
         surprise,
-        split
+        hotColumn,
+        hotVideo,
+        experience,
+        brandSale,
+        ratings,
+        mainfooter
       }
   }
 </script>
-
-
 <style lang="stylus" rel="stylesheet/stylus">
   .allmodul
     width 100%
     height 522px
     position relative
     overflow hidden
-    .surprise_day
-      height 2000px
+    float: left
 
 </style>

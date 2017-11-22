@@ -1,7 +1,13 @@
 # epet_app
-模拟e宠商城
-模拟e宠商城
-> A Vue.js project
+> 模拟e宠商城
+
+##day01
+    路由搭建，静态头部和轮播
+##day02
+    main的各部分组件
+
+
+
 
 ## Build Setup
 

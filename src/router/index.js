@@ -7,6 +7,8 @@ Vue.use(VueRouter);
 import main from '../pages/main/main.vue'
 import cart from '../pages/cart/cart.vue'
 import category from '../pages/category/category.vue'
+import tab1 from '../pages/category/tab1.vue'
+import tab2 from '../pages/category/tab2.vue'
 import login from '../pages/user/login.vue'
 import register from '../pages/user/register.vue'
 // 暴露
@@ -23,7 +25,21 @@ export default new VueRouter({
     },
     {
       path:'/category',
-      component: category
+      component: category,
+      children: [
+        {
+          path : '/category',
+          redirect: '/category/tab1'
+        },
+        {
+          path: 'tab1',
+          component: tab1
+        },
+        {
+          path: 'tab2',
+          component: tab2
+        },
+      ]
     },
     {
       path:'/cart',

@@ -30,6 +30,7 @@ export default {
   #epet
     width 100%
     overflow hidden
+    font-size 14px
     .footer
       border-top: 1px solid #e7e7e7;
       height 45px

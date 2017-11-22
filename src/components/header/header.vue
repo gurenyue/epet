@@ -22,11 +22,6 @@
     </div>
     <div class="navWrapper" ref="nav">
        <ul class="find_nav">
-            <!--<li class="dscroll-li" v-for="(nav,index) in navlist" :key="index" :class="{on:index===0}">-->
-                <!--<a href="">-->
-                <!--<span>{{nav.name}}</span>-->
-                <!--</a>-->
-            <!--</li>-->
            <li class="on">
            <a href="">
              <span>首页</span>
@@ -101,7 +96,7 @@
    height: 100px
    .searchWrapper
      width 100%
-     padding 5px 10px 5px 10px
+     padding 5px 0px 5px 0px
      .find_search
        display flex
        justify-content space-around
@@ -110,11 +105,11 @@
        box-sizing border-box
        .location
          color: #898989;
-         margin-right: 20px
+         margin-right: 10px
        .searchText
          .epet-search
            &>input
-             width: 100%;
+             width: 220px;
              border: 0;
              height: 25px;
              background: #e9e9e9;
@@ -147,15 +142,23 @@
          width 75px
          float left
          text-align center
-         &.on
-         background-color: #5bff71
          &>a
-           height 100%
+           font-size 14px
            display block
            line-height 36px
            &>span
+             display inline-block
              color: #666
              font-weight 300
+             line-height 36px
+             font-size: 14px;
+             text-align: center;
+       .on
+         &>a
+           &>span
+             color #46a546
+             border-bottom 1px solid green
+
 
 
 </style>
