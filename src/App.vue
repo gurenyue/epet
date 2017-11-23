@@ -14,7 +14,7 @@
       <router-link to="/cart"></router-link>
       </div>
       <div class="footer-item user" >
-      <router-link to="/login" ></router-link>
+      <router-link to="/login"  @loginback=""></router-link>
       </div>
     </div>
 
@@ -30,7 +30,7 @@ export default {
   },
   methods:{
     toggleShow(){
-        this.isShow =true
+        this.isShow =false
     }
   },
   mounted(){
@@ -66,19 +66,28 @@ export default {
           width: 42px;
       .main
         &>a
-          background: url('./assets/imgs/icon.png') no-repeat
+          background: url('./assets/imgs/icon.png')  no-repeat
+          background-position  -82px 0
           background-size 234px 163px;
+          &.active
+              background-position  0 0
       .category
         &>a
           background: url('./assets/imgs/icon.png')  -82px -40px  no-repeat
           background-size 234px 163px;
+          &.active
+            background-position  0 -40px
       .cart
         &>a
           background: url('./assets/imgs/icon.png')  -82px -80px no-repeat
           background-size 234px 163px;
+          &.active
+            background-position  0 -80px
       .user
         &>a
           background: url('./assets/imgs/icon.png')  -82px -122px no-repeat
           background-size 234px 163px;
+          &.active
+            background-position  0 -122px
 
 </style>

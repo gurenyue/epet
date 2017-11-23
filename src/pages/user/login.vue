@@ -73,9 +73,9 @@
     <div class="registerWrapper" v-show="isRegister">
       <div class="reg">
         <span class="s1"></span>
-        <input  type="text" placeholder="手机号/邮箱/用户名" ref="numbers">
+        <input  type="text" placeholder="手机号/邮箱/用户名" v-model="input">
       </div>
-      <div class="button active" @click="next" :class="{active:isOn}">下一步</div>
+      <div class="button" @click="next" :class="{active:isOn}">下一步</div>
     </div>
     <div class="next" v-show="isNext">
         <ul class="inputnumber">
@@ -118,12 +118,14 @@
         isLogin:true,
         isRegister:false,
         isNext:false,
-        init:true
+        init:true,
+        input:''
       }
     },
     methods:{
       change(){
         this.$router.back()
+        this.$emit('loginback')
       },
       login(){
          this.isActive = false
@@ -140,16 +142,19 @@
       next(){
         this.isNext=true
         this.isRegister=false
+      },
+      ring(){
+        var las=this.$refs.numbers
       }
     },
     computed:{
       isOn(){
-//        var val=this.$refs.numbers.value;
-//        if(val){
-//          return true
-//        }else {
-//          return false
-//        }
+        var val=this.input
+        if(val){
+          return true
+        }else {
+          return false
+        }
 
       }
     }

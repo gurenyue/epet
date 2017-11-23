@@ -5,6 +5,11 @@ import VueLazyload from 'vue-lazyload'
 import App from './App.vue'
 import router from './router'
 import loading from './assets/imgs/loading.gif'
+// 引入控制地址的选择插件
+import Distpicker from 'v-distpicker'
+// 引入图标库
+import './assets/stylus/fonts.styl'
+
 Vue.use(VueScroller)
 
 // 声明使用 轮播
@@ -20,8 +25,14 @@ Vue.component(TabContainerItem.name, TabContainerItem);
 Vue.use(VueLazyload, {
   loading
 })
-// 引入图标库
-import './assets/stylus/fonts.styl'
+
+// 声明使用地址选择插件
+Vue.component('v-distpicker', Distpicker)
+
+
+
+
+
 
 new Vue({
   el: '#app',
