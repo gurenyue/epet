@@ -8,9 +8,12 @@
          <router-link to="/category/tab2">品牌</router-link>
        </div>
      </div>
-     <keep-alive>
-       <router-view></router-view>
-     </keep-alive>
+      <div class="showContent">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+      </div>
+
   </div>
 
 </template>
@@ -21,12 +24,19 @@
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
  .categorybox
+   width 100%
+   height 100%
+   overflow hidden
    .categoryHeader
+     z-index 10
+     position absolute
      box-sizing border-box
      padding 0 15px
      width 100%
      height 40px
      display flex
+     background-color white
+     border-bottom: 1px solid #cbcbcb;
      .nav-sort
        width  50%;
        height  40px;
@@ -45,4 +55,9 @@
      .brand
        padding-left  5%
 
+   .showContent
+     width 100%
+     height 100%
+     box-sizing border-box
+     padding-top 40px
 </style>

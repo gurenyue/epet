@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import { Swipe, SwipeItem ,Navbar, TabItem,TabContainer, TabContainerItem } from 'mint-ui';
 import VueScroller from 'vue-scroller'
+import VueLazyload from 'vue-lazyload'
 import App from './App.vue'
 import router from './router'
+import loading from './assets/imgs/loading.gif'
 Vue.use(VueScroller)
 
 // 声明使用 轮播
@@ -14,6 +16,10 @@ Vue.component(TabItem.name, TabItem);
 // 声明使用 面板
 Vue.component(TabContainer.name, TabContainer);
 Vue.component(TabContainerItem.name, TabContainerItem);
+// 内部会自定义一个全局指令 lazy来实现图片懒加载
+Vue.use(VueLazyload, {
+  loading
+})
 // 引入图标库
 import './assets/stylus/fonts.styl'
 

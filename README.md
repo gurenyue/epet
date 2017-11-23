@@ -5,7 +5,9 @@
     路由搭建，静态头部和轮播
 ##day02
     main的各部分组件
-
+##day03
+    在使用Navbar的时候，和tab-container一起使用，
+    为了使tab区在左侧使用了伸缩盒模型，flex-direction: column使主次颠倒竖向排列
 
 
 

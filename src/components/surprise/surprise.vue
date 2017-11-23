@@ -107,7 +107,8 @@
       this.$nextTick(()=>{
         var scroll = new BScroll(this.$refs.surprise_pro,{
             click:true,
-            scrollX:true
+            scrollX:true,
+            scrollY:false
         })
       })
     }
