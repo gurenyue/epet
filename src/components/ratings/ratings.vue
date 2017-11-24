@@ -1,5 +1,5 @@
 <template>
-  <div class="ratings">
+  <div class="ratings" @click="next" v-if="main.ratings">
     <div class="title">
       <div class="titleImg">
         <img src="./ratings.png" alt="">
@@ -12,122 +12,19 @@
     </div>
     <div class="content">
       <ul class="judgeList">
-        <li>
+        <li v-for="(rating, index) in ratings" :key="index">
           <a href="">
             <div class="judge-item">
               <div class="mainImg">
-                <img src="./rating.jpg" alt="">
+                <img :src="rating.image" alt="">
+                <div class="join_time">{{rating.time}}</div>
               </div>
               <div class="user">
-                <span class="fl">鲍***美</span>
-                <span class="fr">博美</span>
+                <span class="fl">{{rating.username}}</span>
+                <span class="fr">{{rating.ownpet}}</span>
               </div>
               <div class="judge">
-                不知不觉，陪伴E宠三年多了。我家盒小喵也三岁多了。
-                在这里购物，我觉得放心，安心，省心。
-                质量有保障，售货服务也很贴心，及时。
-                这不仅仅是个购物平台，更是爱猫人的天地。
-                祝福E宠可以越走越好，有更多丰富的商品
-              </div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <div class="judge-item">
-              <div class="mainImg">
-                <img src="./rating.jpg" alt="">
-              </div>
-              <div class="user">
-                <span class="fl">鲍***美</span>
-                <span class="fr">博美</span>
-              </div>
-              <div class="judge">
-                不知不觉，陪伴E宠三年多了。我家盒小喵也三岁多了。
-                在这里购物，我觉得放心，安心，省心。
-                质量有保障，售货服务也很贴心，及时。
-                这不仅仅是个购物平台，更是爱猫人的天地。
-                祝福E宠可以越走越好，有更多丰富的商品
-              </div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <div class="judge-item">
-              <div class="mainImg">
-                <img src="./rating.jpg" alt="">
-              </div>
-              <div class="user">
-                <span class="fl">鲍***美</span>
-                <span class="fr">博美</span>
-              </div>
-              <div class="judge">
-                不知不觉，陪伴E宠三年多了。我家盒小喵也三岁多了。
-                在这里购物，我觉得放心，安心，省心。
-                质量有保障，售货服务也很贴心，及时。
-                这不仅仅是个购物平台，更是爱猫人的天地。
-                祝福E宠可以越走越好，有更多丰富的商品
-              </div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <div class="judge-item">
-              <div class="mainImg">
-                <img src="./rating.jpg" alt="">
-              </div>
-              <div class="user">
-                <span class="fl">鲍***美</span>
-                <span class="fr">博美</span>
-              </div>
-              <div class="judge">
-                不知不觉，陪伴E宠三年多了。我家盒小喵也三岁多了。
-                在这里购物，我觉得放心，安心，省心。
-                质量有保障，售货服务也很贴心，及时。
-                这不仅仅是个购物平台，更是爱猫人的天地。
-                祝福E宠可以越走越好，有更多丰富的商品
-              </div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <div class="judge-item">
-              <div class="mainImg">
-                <img src="./rating.jpg" alt="">
-              </div>
-              <div class="user">
-                <span class="fl">鲍***美</span>
-                <span class="fr">博美</span>
-              </div>
-              <div class="judge">
-                不知不觉，陪伴E宠三年多了。我家盒小喵也三岁多了。
-                在这里购物，我觉得放心，安心，省心。
-                质量有保障，售货服务也很贴心，及时。
-                这不仅仅是个购物平台，更是爱猫人的天地。
-                祝福E宠可以越走越好，有更多丰富的商品
-              </div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <div class="judge-item">
-              <div class="mainImg">
-                <img src="./rating.jpg" alt="">
-              </div>
-              <div class="user">
-                <span class="fl">鲍***美</span>
-                <span class="fr">博美</span>
-              </div>
-              <div class="judge">
-                不知不觉，陪伴E宠三年多了。我家盒小喵也三岁多了。
-                在这里购物，我觉得放心，安心，省心。
-                质量有保障，售货服务也很贴心，及时。
-                这不仅仅是个购物平台，更是爱猫人的天地。
-                祝福E宠可以越走越好，有更多丰富的商品
+                {{rating.text}}
               </div>
             </div>
           </a>
@@ -138,7 +35,20 @@
 </template>
 
 <script>
-  export default{}
+  import {mapState} from 'vuex'
+  export default{
+    computed:{
+      ...mapState(['main']),
+      ratings(){
+        return this.main.ratings
+      }
+    },
+    methods:{
+      next(){
+        console.log(this.ratings);
+      }
+    }
+  }
 </script>
 
 
@@ -187,10 +97,24 @@
               margin-top 10px
               padding-bottom 15px
               .mainImg
+                width 100%
+                height 150px
+                overflow hidden
+                position: relative
                 &>img
                   display block
                   width 100%
-                  height 150px
+                  height 172px
+                &>div
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  width: 100%;
+                  background: rgba(0,0,0,.4);
+                  color: #fff;
+                  font-size: 12px;
+                  line-height 20px
+                  text-align center
               .user
                 box-sizing: border-box
                 padding 0 5px

@@ -5,7 +5,11 @@
         <img src="./surprise.png" alt="">
       </div>
       <div class="promptText">距本场结束</div>
-      <div class="promptTime">09：30 ：20</div>
+      <div class="promptTime">
+        <span>09</span>:
+        <span>30</span>:
+        <span>20</span>
+       </div>
       <div class="more">
         <a href="">
           <img src="./more.png" alt="">
@@ -14,83 +18,13 @@
   </div>
   <div class="surprise_pro" ref="surprise_pro">
     <ul class="proList">
-      <li class="pro-item">
+      <li class="pro-item" v-for="(good,index) in main.goods" :key="index">
         <a href="">
           <div class="pro-image">
-            <img src="./01.jpg" alt="">
+            <img :src="good.image" alt="">
           </div>
-          <div class="red">￥3.5</div>
-          <div class="discount">省13.50</div>
-        </a>
-
-      </li>
-      <li class="pro-item">
-        <a href="">
-          <div class="pro-image">
-            <img src="./02.jpg" alt="">
-          </div>
-          <div class="red">￥3.5</div>
-          <div class="discount">省13.50</div>
-        </a>
-
-      </li>
-      <li class="pro-item">
-        <a href="">
-          <div class="pro-image">
-            <img src="./01.jpg" alt="">
-          </div>
-          <div class="red">￥3.5</div>
-          <div class="discount">省13.50</div>
-        </a>
-
-      </li>
-      <li class="pro-item">
-        <a href="">
-          <div class="pro-image">
-            <img src="./01.jpg" alt="">
-          </div>
-          <div class="red">￥3.5</div>
-          <div class="discount">省13.50</div>
-        </a>
-
-      </li>
-      <li class="pro-item">
-        <a href="">
-          <div class="pro-image">
-            <img src="./01.jpg" alt="">
-          </div>
-          <div class="red">￥3.5</div>
-          <div class="discount">省13.50</div>
-        </a>
-
-      </li>
-      <li class="pro-item">
-        <a href="">
-          <div class="pro-image">
-            <img src="./01.jpg" alt="">
-          </div>
-          <div class="red">￥3.5</div>
-          <div class="discount">省13.50</div>
-        </a>
-
-      </li>
-      <li class="pro-item">
-        <a href="">
-          <div class="pro-image">
-            <img src="./01.jpg" alt="">
-          </div>
-          <div class="red">￥3.5</div>
-          <div class="discount">省13.50</div>
-        </a>
-
-      </li>
-      <li class="pro-item">
-        <a href="">
-          <div class="pro-image">
-            <img src="./01.jpg" alt="">
-          </div>
-          <div class="red">￥3.5</div>
-          <div class="discount">省13.50</div>
+          <div class="red">{{good.sale_price}}</div>
+          <div class="discount">{{good.little_price}}</div>
         </a>
 
       </li>
@@ -102,16 +36,40 @@
 
 <script>
   import BScroll from 'better-scroll'
+  import {mapState} from 'vuex'
   export default{
     mounted(){
-      this.$nextTick(()=>{
-        var scroll = new BScroll(this.$refs.surprise_pro,{
-            click:true,
-            scrollX:true,
-            scrollY:false
+        if(!this.main.goods) {
+          return
+        }
+        // 只有当有数据创建创建scroll对象
+        this._initScroll()
+    },
+    methods:{
+//      滚动方法
+      _initScroll () {
+        this.$nextTick(() => {
+          // 异步创建BScroll对象
+          new BScroll(this.$refs.surprise_pro, {
+            click: true,
+            scrollX: true,
+            scrollY: false
+          })
         })
-      })
-    }
+      },
+
+    },
+
+    //    获取主页数据
+    computed: {
+      ...mapState(['main'])
+    },
+    watch: {
+      main(newSeller, oldSeller) { // main更新了, main中有数据了
+        this._initScroll() // 直接刷新当前路由
+      }
+    },
+
   }
 </script>
 
@@ -143,6 +101,13 @@
         width 82px
         height 20px
         line-height 20px
+        display flex
+        &>span
+          width 20px
+          text-align center
+          display block
+          border 1px solid silver
+          margin 2px
       .more
         width 68px
         height 40px

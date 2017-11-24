@@ -1,14 +1,16 @@
 import Vue from 'vue'
-import { Swipe, SwipeItem ,Navbar, TabItem,TabContainer, TabContainerItem } from 'mint-ui';
+import { Swipe, SwipeItem ,Navbar, TabItem,TabContainer, TabContainerItem, Toast  } from 'mint-ui';
 import VueScroller from 'vue-scroller'
 import VueLazyload from 'vue-lazyload'
 import App from './App.vue'
 import router from './router'
+import store from './store'
 import loading from './assets/imgs/loading.gif'
 // 引入控制地址的选择插件
 import Distpicker from 'v-distpicker'
 // 引入图标库
 import './assets/stylus/fonts.styl'
+import './mock/mockServer'
 
 Vue.use(VueScroller)
 
@@ -30,13 +32,10 @@ Vue.use(VueLazyload, {
 Vue.component('v-distpicker', Distpicker)
 
 
-
-
-
-
 new Vue({
   el: '#app',
   render:h=>h(App),
-  router
+  router,
+  store
 
 })

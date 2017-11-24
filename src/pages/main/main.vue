@@ -33,6 +33,7 @@
     </div>
 </template>
 <script>
+  import axios from 'axios'
   import BScroll from 'better-scroll'
   //  引入组件
   import header from '../../components/header/header.vue'
@@ -62,13 +63,17 @@
 
       }
     },
-    mounted(){
-      this.$nextTick(()=>{
-        var scroll =new BScroll(this.$refs.module,{
-          click :true
+    mounted() {
+//      更新主页的数据
+      this.$store.dispatch('getMain', () => { // 当此函数执行时, 数据状态更新了
+        this.$nextTick(()=>{
+          var scroll =new BScroll(this.$refs.module,{
+            click :true
+          })
         })
       })
     },
+
 //注册组件标签
       components: {
         'epet-header': header,

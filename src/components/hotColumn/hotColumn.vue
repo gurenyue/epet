@@ -1,22 +1,22 @@
 <template>
-<div class="hotcolumn">
+<div class="hotcolumn" >
   <div class="columnTitle">
     <a href="">
       <img src="./hotcolumn.jpg" alt="">
     </a>
   </div>
-  <div class="columnContent">
-    <div class="left">
-      <a href="">
-        <img src="./left.jpg" alt="">
+  <div class="columnContent" v-if="main.hot_content">
+    <div class="left" >
+      <a :href="main.hot_content.left.target.param">
+        <img :src="main.hot_content.left.image" alt="">
       </a>
     </div>
     <div class="right">
-      <a href="">
-        <img src="./right01.png" alt="">
+      <a :href="main.hot_content.rightTop.target.param">
+        <img :src="main.hot_content.rightTop.image" alt="">
       </a>
-      <a href="">
-        <img src="./right02.png" alt="">
+      <a :href="main.hot_content.rightBottom.target.param">
+        <img :src="main.hot_content.rightBottom.image" alt="">
       </a>
     </div>
   </div>
@@ -24,8 +24,9 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
   export default{
-
+   computed:mapState(['main'])
   }
 </script>
 

@@ -5,7 +5,7 @@
     </keep-alive>
     <div class="footer" v-show="isShow">
       <div class="footer-item main">
-        <router-link to="/main"></router-link>
+        <router-link to="/main" ></router-link>
       </div>
       <div class="footer-item category">
         <router-link to="/category"></router-link>
@@ -13,8 +13,8 @@
       <div class="footer-item cart">
       <router-link to="/cart"></router-link>
       </div>
-      <div class="footer-item user" >
-      <router-link to="/login"  @loginback=""></router-link>
+      <div class="footer-item user" @click="toggleShow" >
+      <router-link  :toggleShow="toggleShow" to="/logining"  ></router-link>
       </div>
     </div>
 
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-export default {
+  export default {
   data(){
     return{
       isShow:true
@@ -30,12 +30,10 @@ export default {
   },
   methods:{
     toggleShow(){
-        this.isShow =false
-    }
-  },
-  mounted(){
-    this.isShow=true
+//        this.isShow =false
+    },
   }
+
 }
 </script>
 
@@ -64,29 +62,26 @@ export default {
           margin: 0 auto;
           height: 40px;
           width: 42px;
+          background  url("./assets/imgs/icon.png") no-repeat
+          background-size 234px 163px;
       .main
         &>a
-          background: url('./assets/imgs/icon.png')  no-repeat
           background-position  -82px 0
-          background-size 234px 163px;
           &.active
               background-position  0 0
       .category
         &>a
-          background: url('./assets/imgs/icon.png')  -82px -40px  no-repeat
-          background-size 234px 163px;
+          background-position  -82px -40px
           &.active
             background-position  0 -40px
       .cart
         &>a
-          background: url('./assets/imgs/icon.png')  -82px -80px no-repeat
-          background-size 234px 163px;
+          background-position  -82px -80px
           &.active
             background-position  0 -80px
       .user
         &>a
-          background: url('./assets/imgs/icon.png')  -82px -122px no-repeat
-          background-size 234px 163px;
+          background-position  -82px -122px
           &.active
             background-position  0 -122px
 

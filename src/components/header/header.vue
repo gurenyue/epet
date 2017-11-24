@@ -1,7 +1,7 @@
 <template>
   <div class="headerWrapper">
     <div class="place" v-show="isPlace">
-      <palce @isBack="isBack"></palce>
+      <place @isBack="isBack"></place>
     </div>
     <div class="header"  >
       <div class="searchWrapper"  >
@@ -26,40 +26,10 @@
       </div>
       <div class="navWrapper" ref="nav" >
         <ul class="find_nav">
-          <li class="on">
-            <a href="">
-              <span>首页</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span>服饰城</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span>狗狗主粮</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span>医疗保健</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="">
-              <span>零食玩具</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span>日用外出</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span>日用香波</span>
+          <li  v-for="(menu,index) in main.menus" :key="index"
+               @click="onActive(index)" :class="{on:index ==active}">
+            <a :href="menu.menu_target">
+              <span>{{menu.menu_name}}</span>
             </a>
           </li>
         </ul>
@@ -69,32 +39,29 @@
 </template>
 
 <script>
-  import palce from '../place/place.vue'
+  import {mapState} from 'vuex'
+  import place from '../place/place.vue'
   import BScroll from 'better-scroll'
 
   export default{
      data(){
        return {
-         navlist:[
-           {name:'首页',id:'1'},
-           {name:'服饰城',id:'2'},
-           {name:'狗狗主粮',id:'3'},
-           {name:'医疗保健',id:'3'},
-           {name:'零食玩具',id:'4'},
-           {name:'日用外出',id:'6'},
-           {name:'日用香波',id:'7'},
-         ],
+         active: 0,
          isPlace : false
        }
      },
-    computed:{
-    },
+//    获取主页数据
+    computed:mapState(['main']),
     methods:{
        toggleShow(){
          this.isPlace = true
        },
       isBack(){
         this.isPlace = false
+      },
+//      导航的活动下标
+      onActive(index){
+        this.active = index
       }
     },
      mounted(){
@@ -104,7 +71,7 @@
        })
      },
     components:{
-      palce
+      place
 
     }
   }

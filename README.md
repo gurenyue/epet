@@ -7,21 +7,35 @@
    `
     
 ##day02
-    `
+    
         main的各部分组件
-    `
+    
 ##day03
 
-`
+
     在使用Navbar的时候，和tab-container一起使用，
     为了使tab区在左侧使用了伸缩盒模型，flex-direction: column使主次颠倒竖向排列
 
-`
+
 ##day04
-    `
     
     
-    `
+##day05
+  
+    1、 当使用验证码时，应该 注意跨域发请求的问题，在config==>index.js中配置
+        proxyTable: {
+           '/sendcode': {
+             target: 'http://localhost:3000',
+             changeOrigin: true,
+           },
+           '/login': {
+             target: 'http://localhost:3000',
+             changeOrigin: true,
+           }
+         },
+    2、当用横向滚动式注意初始化和监视main的变化（watch对象和mounted函数）
+     
+  
 
 
 ## Build Setup

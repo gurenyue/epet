@@ -1,58 +1,17 @@
 <template>
-<div class="brandSale">
+<div class="brandSale" v-if="main.brands">
+    <div class="titleImg">
+      <img src="./01.png" alt="">
+    </div>
   <ul class="brandList">
-    <li>
+    <li v-for="(brand,index) in brands" :key="index">
       <div class="title">
-        <span class="name">谷登新品</span>
-        <span class="discount">5折限量</span>
+        <span class="name">{{brand.title}}</span>
+        <span class="discount">{{brand.desc}}</span>
       </div>
       <div class="imgWrapper">
         <a>
-          <img src="../../assets/imgs/brand/brand01.jpg" alt="">
-        </a>
-      </div>
-    </li>
-    <li>
-      <div class="title">
-        <span class="name">谷登新品</span>
-        <span class="discount">5折限量</span>
-      </div>
-      <div class="imgWrapper">
-        <a>
-          <img src="../../assets/imgs/brand/brand02.jpg" alt="">
-        </a>
-      </div>
-    </li>
-    <li>
-      <div class="title">
-        <span class="name">谷登新品</span>
-        <span class="discount">5折限量</span>
-      </div>
-      <div class="imgWrapper">
-        <a>
-          <img src="../../assets/imgs/brand/brand03.jpg" alt="">
-        </a>
-      </div>
-    </li>
-    <li>
-      <div class="title">
-        <span class="name">谷登新品</span>
-        <span class="discount">5折限量</span>
-      </div>
-      <div class="imgWrapper">
-        <a>
-          <img src="../../assets/imgs/brand/brand04.jpg" alt="">
-        </a>
-      </div>
-    </li>
-    <li>
-      <div class="title">
-        <span class="name">谷登新品</span>
-        <span class="discount">5折限量</span>
-      </div>
-      <div class="imgWrapper">
-        <a>
-          <img src="../../assets/imgs/brand/brand05.jpg" alt="">
+          <img :src="brand.image" alt="">
         </a>
       </div>
     </li>
@@ -61,12 +20,27 @@
 </template>
 
 <script>
-  export default{}
+  import {mapState} from 'vuex'
+  export default{
+    computed: {
+      ...mapState(['main']),
+      brands(){
+        return this.main.brands
+      }
+    }
+  }
 </script>
 
 
 <style lang="stylus" rel="stylesheet/stylus">
 .brandSale
+  .titleImg
+    width 100%
+    height 62px
+    &>img
+      height 100%
+      margin 0 auto
+      display block
   .brandList
     &>li
      width 100%

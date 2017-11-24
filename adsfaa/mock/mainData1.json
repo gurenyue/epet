@@ -1,0 +1,264 @@
+{
+  "main": {
+    "menus": [
+      {
+        "menu_id": "1",
+        "menu_name": "首页",
+        "menu_target": ""
+      },
+      {
+        "menu_id": "408",
+        "menu_name": "服饰城",
+        "menu_target": "https://wap.epet.com/clothmall/main.html?pet_type=dog"
+      },
+      {
+        "menu_id": "367",
+        "menu_name": "狗狗主粮",
+        "menu_target": ""
+      },
+      {
+        "menu_id": "368",
+        "menu_name": "医疗保健",
+        "menu_target": ""
+      },
+      {
+        "menu_id": "369",
+        "menu_name": "零食玩具",
+        "menu_target": ""
+      },
+      {
+        "menu_id": "370",
+        "menu_name": "日用外出",
+        "menu_target": ""
+      },
+      {
+        "menu_id": "371",
+        "menu_name": "美容香波",
+        "menu_target": ""
+      }
+    ],
+    "navs":[
+      {
+        "name": "E宠团（狗）",
+        "image": "https://img1.epetbar.com/2017-11/17/16/ff5e15075de3bd754731d6688eb1dad6.png@!water",
+        "img_size": "187X175",
+        "target": {
+          "mode": "web",
+          "param": "https://wap.epet.com/group/v226/main.html?pettype=dog&pet_type=dog"
+        }
+      },
+      {
+        "name": "品牌特卖",
+        "image": "https://img1.epetbar.com/2017-11/17/16/a15c75a1e79d7b674d33214ac4de4b60.png@!water",
+        "img_size": "187X175",
+        "target": {
+          "mode": "web",
+          "param": "http://wap.epet.com/brandsale.html?pet_type=dog"
+        }
+      },
+      {
+        "name": "E宠国际",
+        "image": "https://img1.epetbar.com/2017-11/17/16/689840d11300ceab89d7cbe1f766b13f.png@!water",
+        "img_size": "187X175",
+        "target": {
+          "mode": "web",
+          "param": "http://wap.epetht.com/guide.html?pet_type=dog&fw=0&pet_type=dog"
+        }
+      },
+      {
+        "name": "体验馆",
+        "image": "https://img1.epetbar.com/2017-11/17/16/972a3b71a7f97a253d874b99a8995429.png@!water",
+        "img_size": "187X175",
+        "target": {
+          "mode": "web",
+          "param": "http://wap.epet.com/trial/?pet_type=dog"
+        }
+      },
+      {
+        "name": "清仓特价",
+        "image": "https://img1.epetbar.com/2017-11/17/16/66e02581d32be7e0ca5993c5380357de.png@!water",
+        "img_size": "187X175",
+        "target": {
+          "mode": "web",
+          "param": "http://wap.epet.com/activity/cleargoods.html?pet_type=dog"
+        }
+      },
+      {
+        "name": "潮品视频",
+        "image": "https://img1.epetbar.com/2017-11/17/16/154ae16ff8fb37e9f0f40eeb7589c4c7.png@!water",
+        "img_size": "187X175",
+        "target": {
+          "mode": "web",
+          "param": "https://wap.epet.com/main.html?menu_param=121&is_single=1&pet_type=dog"
+        }
+      },
+      {
+        "name": "新汪课堂",
+        "image": "https://img1.epetbar.com/2017-11/20/07/8f695e84188c7751c0322e1df19fd9f0.jpg@!water",
+        "img_size": "187X175",
+        "target": {
+          "mode": "web",
+          "param": "https://wap.epet.com/main.html?menu_param=4&is_single=1&pet_type=dog"
+        }
+      },
+      {
+        "name": "新品周刊",
+        "image": "https://img1.epetbar.com/2017-11/17/16/88b9ed72b6d471207977daa13d2ed542.jpg@!water",
+        "img_size": "187X175",
+        "target": {
+          "mode": "web",
+          "param": "https://sale.epet.com/m/mould/activity/ztMjQ5Mw%3D%3D.html?tid=2493&version=356&fw=2&pet_type=dog"
+        }
+      }
+    ],
+    "goods": [
+      {
+        "title": "每日疯抢",
+        "image": "https://img1.epetbar.com/2016-01/22/16/257e5b6e403777116dd3b2b5b2f3c1e2.jpg",
+        "sale_price": "1.90",
+        "little_price": "省￥17.10"
+
+      },
+      {
+        "title": "每日疯抢",
+        "image": "https://img1.epetbar.com/2017-08/18/18/3bef69f3c9a13b3c7ce347f0d027df9d.jpg",
+        "sale_price": "1.50",
+        "little_price": "省￥13.50"
+
+      },
+      {
+        "title": "每日疯抢",
+        "image": "https://img1.epetbar.com/2017-09/28/13/6910f5fbbfefd995e511c0648ac34138.jpg",
+        "sale_price": "6.90",
+        "little_price": "省￥62.10"
+      },
+      {
+        "title": "每日疯抢",
+        "image": "https://img1.epetbar.com/2017-07/13/15/e117fbba44f9eb567f286865edbdf31c.jpg",
+        "sale_price": "1.45",
+        "little_price": "省￥13.05"
+      },
+      {
+        "title": "每日疯抢",
+        "image": "https://img1.epetbar.com/2015-03/13/344d77fde46afea2eef243891b6ff0ea.jpg",
+        "sale_price": "3.20",
+        "little_price": "省￥28.80"
+      },
+      {
+        "title": "每日疯抢",
+        "image": "https://img1.epetbar.com/2017-05/31/16/83b21cd8bd2ebe1b51b34755478ee0c9.jpg",
+        "sale_price": "1.65",
+        "little_price": "省￥14.85"
+      },
+      {
+        "title": "每日疯抢",
+        "image": "https://img1.epetbar.com/2017-09/27/11/da47922a1872b79593089ef101d54dc5.jpg",
+        "sale_price": "1.80",
+        "little_price": "省￥16.20"
+      },
+      {
+        "title": "每日疯抢",
+        "image": "https://img1.epetbar.com/2016-06/16/14/476403a8b486e8c210f77172803ccc81.jpg",
+        "sale_price": "2.50",
+        "little_price": "省￥22.50"
+      }
+    ],
+    "hot_content": {
+      "left": {
+        "image": "https://img2.epetbar.com/nowater/2017-09/21/09/03f51eb78add57a87f2619517758cbf4.jpg@!water",
+        "target": {
+          "mode": "web",
+          "param": "https://wap.epet.com/main.html?menu_param=4&is_single=1"
+        }
+      },
+      "rightTop": {
+        "image": "https://img2.epetbar.com/nowater/2017-10/10/10/083fd1fdc5122c2c1e16a20ea0aa488d.png@!water",
+        "target": {
+          "mode": "web",
+          "param": "http://sale.epet.com/m/mould/activity/ztMjU3OQ%3D%3D.html?tid=2579"
+        }
+      },
+      "rightBottom": {
+        "image": "https://img2.epetbar.com/nowater/2017-10/10/17/8244eec40f2901c7d1da50f19c459029.jpg@!water",
+        "target": {
+          "mode": "web",
+          "param": "http://sale.epet.com/m/mould/activity/ztMjU2Mw%3D%3D.html?tid=2563"
+        }
+      }
+    },
+    "video" :{
+      "tit1": {
+        "center_image": "https://img2.epetbar.com/nowater/2017-07/06/8/7b40d88fc2263cf593bf07559e71cec0.png",
+        "right_image": "https://img2.epetbar.com/nowater/2017-07/06/10/54d9f002646c397b6b19abefbe6c155b.png"
+      },
+      "tit2": {
+        "center_img": "https://img2.epetbar.com/nowater/2017-04/19/18/9cfe1253127a6fa47de6e711e216d1ee.png",
+        "right_img": "https://img2.epetbar.com/nowater/2017-04/19/18/8e1b9b24894c1d32c809e2a387d4e425.png"
+      },
+      "value":{
+        "title": "夜空中最亮的星",
+        "time": "02:20",
+        "image": "https://img1.epetbar.com/2017-07/10/18/5f273af318fd5a640bfbcb5016019df4.jpg",
+        "visit_img": "https://static.epetbar.com/static_web/wap/dist/images/views-gray.png",
+        "tiyan_img":"https://img2.epetbar.com/nowater/2017-10/10/11/f5f7e5de3b48cb55a25a84ebc6fc462a.jpg"
+      }
+    },
+    "bands": [
+      {
+        "title": "谷登新品",
+        "desc": "5折限量",
+        "image": "https://img2.epetbar.com/nowater/2017-11/17/18/c1d2ddcc28b959fde8a6c4b413bfa858.jpg"
+      },
+      {
+        "title": "NexGard尼可信",
+        "desc": "",
+        "image": "https://img2.epetbar.com/nowater/2017-11/20/10/7c30b558f0e5026cc47605ea877dd1de.jpg"
+      },
+      {
+        "title": "冠能",
+        "desc": "满399送智能碗",
+        "image": "https://img2.epetbar.com/nowater/2017-10/19/09/407f8316833a3bd928ac31f5e4d14dc3.jpg"
+      },
+      {
+        "title": "优卡",
+        "desc": "只为爱宠卓越表现",
+        "image": "https://img2.epetbar.com/nowater/2017-09/20/13/1b18c703af536f15160beb1d0de06275.jpg"
+      },
+      {
+        "title": "临期不改好货本质",
+        "desc": "进口好货，低至1折！",
+        "image": "https://img2.epetbar.com/nowater/2017-10/12/14/66de171f32497dbc764417cb09c63247.jpg"
+      }
+    ],
+    "ratings": [
+      {
+        "username": "盒**喵",
+        "ownpet": "中华田园猫",
+        "time": "加入E宠2年2月",
+        "text": "不知不觉，陪伴E宠三年多了。我家盒小喵也三岁多了。在这里购物，我觉得放心，安心，省心。质量有保障，售货服务也很贴心，及时。这不仅仅是个购物平台，更是爱猫人的天地。祝福E宠可以越走越好，有更多丰富的商品",
+        "image": "https://img1.epetbar.com/2017-11/18/18/86ffc605cb5b19593b0b48eece20c4bc.jpg"
+      },
+      {
+        "username": "8*******8",
+        "ownpet": "柯基犬",
+        "time": "加入E宠1年9月",
+        "text": "从开始的怀疑，到十分的信赖，E宠给我和我的宝贝十分满意的购物体验，期间也有退换货但都解决的非常满意，4007号，4030号客服以及郑礼霞女士或许已经忘了我，但我对你们以及其他我不知道姓名和工号的客服人员带给我的温暖体贴地服务致以深深的感谢。E宠已经成为了我宠物生涯里坚强的后盾，是可以依靠和信赖的伙伴，让我们一起走下去，在未来的十年二十年，甚至更久，在此也向E宠的领导和仓库的工作人员表达我由衷的感谢，E宠有你相伴，狗生更加绚烂（如果最后一句可以作为广告词我愿意贡献版权哈）。",
+        "image": "https://img1.epetbar.com/2017-11/14/21/d4e7ad32749f72b7b097a78a2fb72fc3.jpg"
+      },
+      {
+        "username": "9*****2",
+        "ownpet": "金毛",
+        "time": "加入E宠1年11月",
+        "text": "哈宝刚到家时才45天，为了他以后的口粮来源粑粑也是着实操了不少心，通过不断的网上查阅分析最终锁定了e宠这个平台。没想到的是，自从第一次在e宠购物后，就一直持续到现在。主要原因无非有三1.客服专业，对客户的反馈及时准确。2.商品让人放心，至少在我个人两年的购物中没有问题，希望再接再厉，继续做好商品的质量把控。3.供货稳定，没有断粮担忧。 \n希望与e宠共勉，当个不断进步的狗粑，也希望e宠能够保持在宠物行业的高水准服务，让我能成为e宠的终身客户。",
+        "image": "https://img1.epetbar.com/2017-11/16/11/2eb4c5d604f5bc411f3af16924de4223.jpg"
+      },
+      {
+        "username": "鲍***美",
+        "ownpet": "博美",
+        "time": "加入E宠6月",
+        "text": "一直在e宠买东西，因为这里的东西都很好都是正品，而且优惠挺多的。其实只要坚持做正品，顾客就会一直留下来，因为没有人喜欢天天去比较哪家店卖的东西更靠谱。所以，我之所以一直选择e宠，还是因为质量，而且我也相信你们给的优惠是相当大的。狗狗一直在吃这里的东西，很健康，没有出现过任何问题，这就是你们给我的服务保证。谢谢！",
+        "image": "https://img1.epetbar.com/2017-09/18/15/71f6e192d9138b2dbeadf65a040d4a1c.jpg"
+      }
+    ]
+  }
+}

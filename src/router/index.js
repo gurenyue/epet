@@ -46,7 +46,7 @@ export default new VueRouter({
       component: cart
     },
     {
-      path:'/login',
+      path:'/logining',
       component: login
     },
     {

@@ -1,23 +1,23 @@
 <template>
-<div class="hotVideo">
-  <div class="title">
+<div class="hotVideo" v-if="main.video" >
+  <div class="title" >
     <div class="titleImg">
-      <img src="./title.png" alt="">
+      <img :src="video.tit1.center_image" alt="">
     </div>
     <div class="more">
       <a href="">
-        <img src="./more.png" alt="">
+        <img :src="video.tit1.right_image" alt="">
       </a>
     </div>
   </div>
   <div class="content">
     <div class="video">
       <a class="titleImg">
-        <img src="./hotVideo.jpg" alt="">
+        <img :src="video.value.image" alt="">
       </a>
     </div>
     <div class="subscribe">
-      <div class="textover c333">夜空中最亮的星</div>
+      <div class="textover c333">{{video.value.title}}</div>
       <div class="text">
         <span class="cmallViewIco"></span>
         <span>7397</span><span class="ml10 mr10">|</span>02:20
@@ -28,7 +28,15 @@
 </template>
 
 <script>
-  export default{}
+  import {mapState} from 'vuex'
+  export default{
+    computed:{
+      ...mapState(['main']),
+      video(){
+        return this.main.video
+      }
+    }
+  }
 </script>
 
 
@@ -56,7 +64,6 @@
         margin-top: 7px
         &>img
           width 60px
-
   .content
     .video
       height 210px

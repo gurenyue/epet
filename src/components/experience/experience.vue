@@ -1,25 +1,33 @@
 <template>
-  <div class="experience">
+  <div class="experience" v-if="main.video">
     <div class="title">
       <div class="titleImg">
-        <img src="./experience.png" alt="">
+        <img :src="video.tit2.center_img" alt="">
       </div>
       <div class="more">
         <a href="">
-          <img src="./more.png" alt="">
+          <img :src="video.tit2.right_img" alt="">
         </a>
       </div>
     </div>
     <div class="imgWrapper">
         <a class="titleImg">
-          <img src="./dog.jpg" alt="">
+          <img :src="video.value.tiyan_img" alt="">
         </a>
     </div>
   </div>
 </template>
 
 <script>
-  export default{}
+  import {mapState} from 'vuex'
+  export default{
+    computed:{
+      ...mapState(['main']),
+      video(){
+        return this.main.video
+      }
+    }
+  }
 </script>
 
 

@@ -1,323 +1,49 @@
 <template>
-  <div class="brand" ref="brand">
-    <div class="item">
-      <div class="item01">
+  <div class="brand" ref="brand" >
+    <div class="item" >
+      <div class="item01" v-for="(brand,index) in brands" :key="index" v-if="brand.title" >
         <div class="title">
-          <span class="c999">—— 推荐品牌 ——</span>
+          <span class="c999">—— {{brand.title}} ——</span>
         </div>
         <div class="show">
-          <ul class="brandlist">
-            <li>
+          <ul class="brandlist" >
+            <li v-for="(item,index) in brand.list" :key="index">
               <a href="" class="db">
                 <div class="img">
-                  <img class="image" src="./b1.jpg">
+                  <img class="image" :src="item.avator">
                 </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
+                <p class="name">{{item.name}}</p>
+                <p class="address">{{item.guojia}}</p>
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="item01">
-        <div class="title">
-          <span class="c999">—— 推荐品牌 ——</span>
-        </div>
-        <div class="show">
-          <ul class="brandlist">
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="item01">
-        <div class="title">
-          <span class="c999">—— 推荐品牌 ——</span>
-        </div>
-        <div class="show">
-          <ul class="brandlist">
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-            <li>
-              <a href="" class="db">
-                <div class="img">
-                  <img class="image" src="./b1.jpg">
-                </div>
-                <p class="name">ZIWI Peak</p>
-                <p class="address">新西兰</p>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
     </div>
   </div>
 </template>
 <script>
+  import {mapState} from 'vuex'
   import BScroll from 'better-scroll'
   import split from '../../components/split/split.vue'
   export default{
+    mounted(){
+      this.$store.dispatch('getBrands', () => { // 当此函数执行时,数据状态更新了
+        this.$nextTick(()=>{
+          this._initScroll()
+        })
+      })
+    },
+    computed:{
+      ...mapState(['brands']),
+
+    },
     methods:{
       _initScroll(){
         var scroll = new BScroll(this.$refs.brand,{
           click:true
         })
       }
-    },
-    mounted(){
-      this.$nextTick(()=>{
-        this._initScroll()
-      })
-
     },
     components:{
       split
