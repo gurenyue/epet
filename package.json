@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "captchapng": "0.0.1",
     "v-distpicker": "^1.0.12",
     "vue": "^2.5.2",
     "vue-lazyload": "^1.1.4",

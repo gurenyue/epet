@@ -37,7 +37,7 @@
           <input type="text" placeholder="确认密码" v-model="surePassword">
         </li>
       </ul>
-      <div class="button active" @click="login">下一步</div>
+      <div class="button active" @click="register">下一步</div>
     </div>
   </div>
 </template>
@@ -52,7 +52,6 @@
         isfirst:true,
         isNext:false,
         phone:'',
-        number:'',
         code:'',
         username : '',
         password : '',
@@ -75,14 +74,9 @@
       },
 
       //注册且登录
-      login() {
-//        判断用户名是否已经注册
-        const user = this.user
-//        筛选所有的用户，判断用户名是否已经注册
-        var repeat = user.filter((item, index)=>{
-          return item.username == username
-        })
 
+
+      register() {
 //        判断密码是否一致
         if(this.password!==this.surePassword){
           Toast( '密码不一致')
@@ -91,7 +85,7 @@
           return
         }
 //        发送ajax请求
-        axios.post('/login', {phone: this.phone, code: this.code}).then(response => {
+        axios.post('/register', {phone: this.phone, code: this.code,username: this.username, password: this.password}).then(response => {
           console.log('login result ', response.data)
           const result = response.data
           if (result.code == 0) {
@@ -100,37 +94,38 @@
               username: this.username,
               password: this.password
             }
-             this.$store.dispatch('addUser',user)
-             localStorage.setItem( 'user', JSON.stringify(user))
-             Toast( `登陆成功: ${user.phone}`)
-          } else {
-             Toast( '登陆失败, 请输入正确的手机号和验证码')
-             return
+            this.$store.dispatch('addUser',user)
+            localStorage.setItem( 'user', JSON.stringify(user))
+            Toast( `登陆成功: ${user.phone}`)
+            //        跳转到登录页面
+            this.$router.push('/login')
+          } else if(result.code == 1) {
+            Toast( '号码已注册')
+          }else if(result.code == 2){
+            Toast( '用户名已注册')
           }
-          //        跳转到登录页面
-          this.$router.push('/login')
         })
 
       },
       //去登录
       next(){
-//        获得输入号码
-        const phone = this.phone.trim()
-        const user=this.user
-//        筛选所有的用户是否有手机号码一样的
-        var repeat = user.filter((item, index)=>{
-           return item.phone==phone
-           })
-//        有手机号码一样的，警告并返回
-        if(repeat.length>0){
-          Toast('该号码已经注册！')
-          return
-        }
-        //        有手机号码不规范的，警告并返回
-        if(phone.length<11){
-          Toast( '请输入正确的手机号！')
-          return
-        }
+////        获得输入号码
+//        const phone = this.phone.trim()
+//        const user=this.user
+////        筛选所有的用户是否有手机号码一样的
+//        var repeat = user.filter((item, index)=>{
+//           return item.phone==phone
+//           })
+////        有手机号码一样的，警告并返回
+//        if(repeat.length>0){
+//          Toast('该号码已经注册！')
+//          return
+//        }
+//        //        有手机号码不规范的，警告并返回
+//        if(phone.length<11){
+//          Toast( '请输入正确的手机号！')
+//          return
+//        }
 //        进入注册页面
         this.isNext=true
         this.isfirst=false

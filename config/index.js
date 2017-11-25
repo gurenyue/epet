@@ -18,7 +18,19 @@ module.exports = {
       '/login': {
         target: 'http://localhost:3000',
         changeOrigin: true,
-      }
+      },
+      '/register': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
+      '/activeLogin': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
+      '/captlogin': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
     },
 
     // Various Dev Server settings

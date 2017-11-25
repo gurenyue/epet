@@ -83,18 +83,18 @@
         <ul class="login01">
           <li>
             <span class="s1"></span>
-            <input  type="text" placeholder="手机号/邮箱/用户名" v-model="username">
+            <input  type="text" placeholder="手机号/邮箱/用户名" v-model="number">
           </li>
           <li>
             <span class="s2"></span>
-            <input type="text" placeholder="输入密码">
+            <input type="text" placeholder="输入密码" v-model="password">
           </li>
         </ul>
         <div class="forget">
           <a href="">忘记密码?</a>
         </div>
         <div class="loginbutton">
-          <a href="#" @click.stop="login">登录</a>
+          <a @click.stop="passwordLogin">登录</a>
         </div>
       </div>
       <div class="main02 main" v-show="isActive">
@@ -102,24 +102,27 @@
         <ul class="login01">
           <li>
             <span class="s1"></span>
-            <input  type="text" placeholder="输入手机号">
+            <input  type="text" placeholder="输入手机号" v-model="number">
           </li>
           <li>
             <span class="s2"></span>
             <input type="text" placeholder="输入图片内容">
-            <a><img src="./seccode.png" alt=""></a>
+            <a>
+              <!--<img src="./seccode.png" alt="" v-show="!imgbase64" >-->
+              <img src="/captlogin" @click="update">
+            </a>
           </li>
           <li>
             <span class="s2"></span>
-            <input type="text" placeholder="动态密码">
-            <span class="right">获取动态密码</span>
+            <input type="text" placeholder="动态密码" v-model="code">
+            <span class="right" @click="sendCode">获取动态密码</span>
           </li>
         </ul>
         <div class="forget">
           <a href="">忘记密码?</a>
         </div>
         <div class="loginbutton">
-          <a href="#">登录2</a>
+          <a @click="changeLogin">登录2</a>
         </div>
       </div>
       <div class="text">合作网站登录</div>
@@ -144,7 +147,10 @@
         isActive:false,
         isLogin:true,
         username:'',
-        password: ''
+        number: '',
+        password: '',
+        code: '',
+        imgbase64:''
       }
     },
     mounted(){
@@ -177,6 +183,71 @@
         localStorage.removeItem('user')
         Toast('已退出')
         this.username = ''
+      },
+//      密码验证
+      passwordLogin(){
+        console.log('登录');
+        axios.post('/login', {number: this.number, password: this.password}).then(response => {
+          const result = response.data
+          if (result.code == 0) {
+            const user = result.data
+            Toast(`登陆成功: ${user.phone}`)
+            this.username = user.username
+            console.log(this.username);
+            this.password=''
+          } else if(result.code == 2) {
+            Toast('登陆失败，用户不存在')
+          }else if(result.code == 3) {
+            Toast('登陆失败，密码错误')
+          }
+        })
+      },
+      //发送短信验证码
+      sendCode () {
+        const url = `/sendcode?phone=${this.number}`
+        axios.get(url).then(response => {
+          Toast({
+            message: '发送验证码成功',
+            iconClass: 'icon icon-success'
+          })
+        })
+      },
+      //  动态验证码验证
+      changeLogin(){
+        console.log('动态验证码登录');
+        axios.post('/activeLogin', {phone: this.number, code: this.code}).then(response => {
+          const result = response.data
+          if (result.code == 0) {
+            const user = result.data
+            Toast(`登陆成功: ${user.phone}`)
+//            更新username
+            this.username = user.username
+            console.log(this.username);
+//            储存在内存中
+            localStorage.setItem( 'user', JSON.stringify(user))
+            this.password=''
+          } else if(result.code ==2) {
+            Toast('登陆失败，用户不存在')
+          }else if(result.code == 1) {
+            Toast('登陆失败，验证码错误')
+          }
+        })
+      },
+//       发送图片验证
+//      getCaptcha(){
+//        const url = `/captlogin`
+//        axios.get(url).then(response => {
+//          Toast({
+//            message: '发送验证码成功',
+//            iconClass: 'icon icon-success'
+//          })
+//         var  result = response.data
+//          console.log(result);
+//          this.imgbase64 = result
+//        })
+//      }
+      update(event){
+        event.target.src="/captlogin?"+Date.now();
       }
     },
     computed:{
