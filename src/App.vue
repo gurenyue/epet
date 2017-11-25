@@ -14,7 +14,7 @@
       <router-link to="/cart"></router-link>
       </div>
       <div class="footer-item user" @click="toggleShow" >
-      <router-link  :toggleShow="toggleShow" to="/logining"  ></router-link>
+      <router-link  :toggleShow="toggleShow" to="/login"  ></router-link>
       </div>
     </div>
 

@@ -28,10 +28,11 @@
   </div>
     <div class="contentWrapper" ref="content">
         <div class="content" >
-          <div class="animal">
-            <span @click="showPet" class="pet">猫猫站</span>
-            <span @click="showPet" class="pet">狗狗站</span>
-            <span @click="showPet" class="pet">水族站</span>
+          <div class="animal" >
+            <!--<span class="pet">猫猫站</span>-->
+            <span class="pet">猫猫站</span>
+            <span class="on">狗狗站</span>
+            <span class="pet">水族站</span>
           </div>
           <div class="header">
             当前默认地址 : {{province}}{{city}}{{area}}
@@ -87,12 +88,10 @@
       onArea(data){
         this.area = data.value
       },
-      showPet(){
-        var list=document.getElementsByClassName('pets')
-        for(let i=0;i<list.length;i++){
-
-        }
-      }
+//      showPet(){
+//        const list= document.getElementsByClassName('pet')
+////        Array.prototype.slice.
+//      }
     }
   }
 </script>

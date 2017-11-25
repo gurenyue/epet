@@ -26,15 +26,15 @@
         </li>
         <li>
           <span class="s2"></span>
-          <input type="text" placeholder="你的用户/昵称">
+          <input type="text" placeholder="你的用户/昵称" v-model="username">
         </li>
         <li>
           <span class="s2"></span>
-          <input type="text" placeholder="设置密码">
+          <input type="text" placeholder="设置密码" v-model="password">
         </li>
         <li>
           <span class="s2"></span>
-          <input type="text" placeholder="确认密码">
+          <input type="text" placeholder="确认密码" v-model="surePassword">
         </li>
       </ul>
       <div class="button active" @click="login">下一步</div>
@@ -44,6 +44,8 @@
 
 <script>
   import { Toast } from 'mint-ui';
+  import {mapState} from  'vuex'
+  import axios from 'axios'
   export default{
     data(){
       return {
@@ -51,7 +53,10 @@
         isNext:false,
         phone:'',
         number:'',
-        code:''
+        code:'',
+        username : '',
+        password : '',
+        surePassword : '',
       }
     },
 
@@ -59,59 +64,80 @@
 
 //发送验证码
       sendCode () {
-        Toast({
+        const url = `/sendcode?phone=${this.phone}`
+        axios.get(url).then(response => {
+//          alert(response.data.code) // 0
+          Toast({
             message: '发送验证码成功',
             iconClass: 'icon icon-success'
           })
-
-//        const url = `/sendcode?phone=${this.phone}`
-//        axios.get(url).then(response => {
-////          alert(response.data.code) // 0
-//          Toast({
-//            message: '发送验证码成功',
-//            iconClass: 'icon icon-success'
-//          })
-//        })
+        })
       },
 
-      //注册
+      //注册且登录
       login() {
+//        判断用户名是否已经注册
+        const user = this.user
+//        筛选所有的用户，判断用户名是否已经注册
+        var repeat = user.filter((item, index)=>{
+          return item.username == username
+        })
 
-        Toast( '注册成功，已经登录')
-
-//        axios.post('/login', {phone: this.phone, code: this.code}).then(response => {
-//          console.log('login result ', response.data)
-//          const result = response.data
-//          if (result.code == 0) {
-//            const user = result.data
-//             this.$store.dispatch('getUser',user)
-//            alert(`登陆成功: ${user.phone}`)
-//        Toast({
-//          message: '注册成功，已经登录',
-//          iconClass: 'icon icon-success'
-//        })
-//          } else {
-//            alert(`登陆失败, 请输入正确的手机号和验证码`)
-//        Toast( '登陆失败, 请输入正确的手机号和验证码')
-//          }
-//        })
-
-
-        this.$router.push('/main')
+//        判断密码是否一致
+        if(this.password!==this.surePassword){
+          Toast( '密码不一致')
+          this.password= ''
+          this.surePassword= ''
+          return
+        }
+//        发送ajax请求
+        axios.post('/login', {phone: this.phone, code: this.code}).then(response => {
+          console.log('login result ', response.data)
+          const result = response.data
+          if (result.code == 0) {
+            const user = {
+              phone: this.phone,
+              username: this.username,
+              password: this.password
+            }
+             this.$store.dispatch('addUser',user)
+             localStorage.setItem( 'user', JSON.stringify(user))
+             Toast( `登陆成功: ${user.phone}`)
+          } else {
+             Toast( '登陆失败, 请输入正确的手机号和验证码')
+             return
+          }
+          //        跳转到登录页面
+          this.$router.push('/login')
+        })
 
       },
-
-      register(){
-        this.isRegister=!this.isRegister
-        this.init=false
-      },
+      //去登录
       next(){
+//        获得输入号码
+        const phone = this.phone.trim()
+        const user=this.user
+//        筛选所有的用户是否有手机号码一样的
+        var repeat = user.filter((item, index)=>{
+           return item.phone==phone
+           })
+//        有手机号码一样的，警告并返回
+        if(repeat.length>0){
+          Toast('该号码已经注册！')
+          return
+        }
+        //        有手机号码不规范的，警告并返回
+        if(phone.length<11){
+          Toast( '请输入正确的手机号！')
+          return
+        }
+//        进入注册页面
         this.isNext=true
         this.isfirst=false
-        console.log('出发了吗');
       },
     },
     computed:{
+      ...mapState(['user']),
       isOn(){
         var val=this.phone
         if(val){
@@ -120,7 +146,8 @@
           return false
         }
 
-      }
+      },
+
     }
   }
 </script>

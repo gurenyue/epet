@@ -1,17 +1,17 @@
 <template>
   <div class="headerWrapper">
-    <div class="place" v-show="isPlace">
-      <place @isBack="isBack"></place>
-    </div>
+    <!--<div class="place" v-show="isPlace">-->
+      <!--<place @isBack="isBack"></place>-->
+    <!--</div>-->
     <div class="header"  >
       <div class="searchWrapper"  >
         <div class="find_search">
           <div class="location">
-            <a  @click.stop="toggleShow">
+            <router-link to="/place"  @click.stop="toggleShow">
               <span class="catordog">狗狗站</span>
               <span class="c89">|</span>
               <span class="myposition">重庆</span>
-            </a>
+            </router-link>
           </div>
           <p class="searchText">
             <a href="" class="epet-search">
@@ -40,14 +40,13 @@
 
 <script>
   import {mapState} from 'vuex'
-  import place from '../place/place.vue'
+//  import place from '../place/place.vue'
   import BScroll from 'better-scroll'
 
   export default{
      data(){
        return {
          active: 0,
-         isPlace : false
        }
      },
 //    获取主页数据
@@ -71,7 +70,6 @@
        })
      },
     components:{
-      place
 
     }
   }

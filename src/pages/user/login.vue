@@ -1,6 +1,67 @@
 <template>
   <div class="login">
-    <div class="loginWrapper" >
+    <div class="logining" v-if="username">
+       <div class="user">
+         <img src="./center.jpg" alt="">
+         <div class="namestyle">
+           <span>{{username}}</span>
+         </div>
+       </div>
+       <div class="center">
+         <ul class="list">
+           <li>
+             <a href="#">
+               <span><img src="./icon2.png" alt=""></span>
+               <span>待付款</span>
+             </a>
+           </li>
+           <li>
+             <a href="#">
+               <span><img src="./icon2.png" alt=""></span>
+               <span>待收货</span>
+             </a>
+           </li>
+           <li>
+             <a href="#">
+               <span><img src="./icon2.png" alt=""></span>
+               <span>待评价</span>
+             </a>
+           </li>
+           <li>
+             <a href="#">
+               <span><img src="./icon2.png" alt=""></span>
+               <span>所有订单</span>
+             </a>
+           </li>
+           <li>
+             <a href="#">
+               <span><img src="./icon2.png" alt=""></span>
+               <span>优惠券</span>
+             </a>
+           </li>
+           <li>
+             <a href="#">
+               <span><img src="./icon2.png" alt=""></span>
+               <span>E宠币</span>
+             </a>
+           </li>
+           <li>
+             <a href="#">
+               <span><img src="./icon2.png" alt=""></span>
+               <span>余额</span>
+             </a>
+           </li>
+           <li>
+             <a href="#">
+               <span><img src="./icon2.png" alt=""></span>
+               <span>我的钱包</span>
+             </a>
+           </li>
+         </ul>
+       </div>
+        <div class="out" @click="out">退出</div>
+    </div>
+    <div class="loginWrapper" v-else>
       <div class="image-header">
         <div class="title">
           <div class="back" @click="change">
@@ -22,7 +83,7 @@
         <ul class="login01">
           <li>
             <span class="s1"></span>
-            <input  type="text" placeholder="手机号/邮箱/用户名">
+            <input  type="text" placeholder="手机号/邮箱/用户名" v-model="username">
           </li>
           <li>
             <span class="s2"></span>
@@ -33,7 +94,7 @@
           <a href="">忘记密码?</a>
         </div>
         <div class="loginbutton">
-          <a href="#">登录</a>
+          <a href="#" @click.stop="login">登录</a>
         </div>
       </div>
       <div class="main02 main" v-show="isActive">
@@ -49,10 +110,10 @@
             <a><img src="./seccode.png" alt=""></a>
           </li>
           <li>
-          <span class="s2"></span>
-          <input type="text" placeholder="动态密码">
-          <span class="right">获取动态密码</span>
-        </li>
+            <span class="s2"></span>
+            <input type="text" placeholder="动态密码">
+            <span class="right">获取动态密码</span>
+          </li>
         </ul>
         <div class="forget">
           <a href="">忘记密码?</a>
@@ -75,32 +136,51 @@
 </template>
 <script>
   import axios from 'axios'
+  import {mapState} from 'vuex'
+  import {Toast} from 'mint-ui'
   export default{
     data(){
       return {
         isActive:false,
         isLogin:true,
+        username:'',
+        password: ''
       }
     },
+    mounted(){
+      const user =JSON.parse(localStorage.getItem('user')||'{}')
+      if(user){
+      this.username =user.username
+     }
+
+
+     },
     methods:{
-
-
       change(){
         this.$router.push('/main')
 //        this.$router.replace('/main')
 //        this.$router.go(-1)
 //        this.$router.back()
       },
+//      当一般登陆时
       common(){
          this.isActive = false
          this.isLogin = true
       },
+//      动态验证码登录时
       loginActive(){
         this.isActive = true
         this.isLogin = false
       },
+//      退出登录
+      out(){
+        localStorage.removeItem('user')
+        Toast('已退出')
+        this.username = ''
+      }
     },
     computed:{
+      ...mapState(['user']),
       isOn(){
         var val=this.input
         if(val){
@@ -108,7 +188,6 @@
         }else {
           return false
         }
-
       }
     }
   }
@@ -117,6 +196,70 @@
 .login
   width 100%
   height 100%
+  .logining
+    width 100%
+    height 100%
+    color white
+    .user
+      height 167px
+      background-image url("./dog.jpg")
+      background-size 100% 100%
+      padding 15px
+      box-sizing border-box
+      text-align center
+      line-height 30px
+      &>img
+        width: 70px
+        height 70px
+        box-sizing border-box
+        border-radius 50%
+        border 5px solid #ebebeb
+        float left
+      .namestyle
+        float left
+        margin 10px
+    .center
+      width 100%
+      height 176px
+      .list
+        height 100%
+        font-size 14px
+        &>li
+          width:25%
+          height 50%
+          float left
+          border-bottom: 1px solid #e5e5e5;
+          box-sizing border-box
+          position relative
+          padding-top 15px
+          padding-bottom 10px
+          &>a
+            height 100%
+            box-sizing border-box
+            display flex
+            flex-direction: column
+            align-items center
+            justify-content space-between
+            &>span
+              height 50%
+              text-align center
+              margin-top 5px
+              &>img
+                display block
+                width: 27px;
+                height: 25px;
+    .out
+      width 95%
+      margin 0 auto
+      margin-top 30px
+      height 40px
+      color #ffffff
+      background-color red
+      font-size 20px
+      text-align center
+      line-height 40px
+      border-radius 10px
+
   .loginWrapper
      width 100%
      height 600px

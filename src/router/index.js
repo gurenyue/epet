@@ -11,6 +11,7 @@ import tab1 from '../pages/category/tab1.vue'
 import tab2 from '../pages/category/tab2.vue'
 import login from '../pages/user/login.vue'
 import register from '../pages/user/register.vue'
+import place from '../pages/place/place.vue'
 // 暴露
 export default new VueRouter({
   linkActiveClass:'active',
@@ -46,12 +47,16 @@ export default new VueRouter({
       component: cart
     },
     {
-      path:'/logining',
+      path:'/login',
       component: login
     },
     {
       path:'/register',
       component: register
+    },
+    {
+      path:'/place',
+      component: place
     }
   ]
 })

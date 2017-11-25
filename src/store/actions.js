@@ -3,7 +3,7 @@ import {
   RECEIVE_MAIN,
   RECEIVE_BRANDS,
   RECEIVE_CATEGORY,
-  RECEIVE_USER
+  ADD_USER
 } from './mutation-types'
 
 export default {
@@ -51,7 +51,8 @@ export default {
       }
     })
   },
-  getUser({commit}, user){
-    commit(RECEIVE_USER,{user})
+  addUser({commit}, user){
+    commit(ADD_USER,{user})
+    console.log('提交user');
   }
 }

@@ -3,7 +3,7 @@ import {
   RECEIVE_MAIN,
   RECEIVE_BRANDS,
   RECEIVE_CATEGORY,
-  RECEIVE_USER
+  ADD_USER
 } from './mutation-types'
 export default {
   [RECEIVE_MAIN] (state, {main}) {
@@ -16,7 +16,7 @@ export default {
   [RECEIVE_CATEGORY] (state, {category}) {
     state.category = category
   },
-  [RECEIVE_USER] (state, {user}) {
-    state.user = user
+  [ADD_USER] (state, {user}) {
+    state.user.push(user)
   }
 }
